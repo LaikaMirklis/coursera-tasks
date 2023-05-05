@@ -122,6 +122,8 @@ p {
   }
 } 
 
+
+
 /********** Small mobile view **********/
 @media  (max-width: 482px) {
   .col-mv-1, .col-mv-2, .col-mv-3, .col-mv-4, .col-mv-5, .col-mv-6, .col-mv-7, .col-mv-8, .col-mv-9, .col-mv-10, .col-mv-11, .col-mv-12 {
