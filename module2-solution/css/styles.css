@@ -70,7 +70,6 @@ p {
   .col-dv-1, .col-dv-2, .col-dv-3, .col-dv-4, .col-dv-5, .col-dv-6, .col-dv-7, .col-dv-8, .col-dv-9, .col-dv-10, .col-dv-11, .col-dv-12 {
     float: left;
   }
-  }
   .col-dv-4 {
     width: 33.33%;
   }
