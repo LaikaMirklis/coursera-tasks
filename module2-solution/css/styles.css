@@ -215,5 +215,6 @@ p {
   }
   .dish_block {
     height: 125px;
+    min-width:465px;
   }
 } 
