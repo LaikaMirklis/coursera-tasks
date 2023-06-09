@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1_v3</title>
+    <link rel="stylesheet" href="styles(01-v3).css" />
+  </head>
+  <body>
+    <pre>
+        <!-- Завдання:
+        Запросіть у користувача ввести назву міста. Видаліть це місто з елементів массиву.
+        Якщо міста немає в массиві, сповістіть про це користувача.
+        Виведіть массив на екран після видалення елементів.
+        Незалежні від регістру змінні, показувати масив до та після змін. -->
+        <!-- Закреслювати видалені міста. Зробити дві колонки в другій записувати видалені міста
+        Щоб елементи в другій колонці розміщувались напроти тих, що видаляються
+        Зробити щоб коли натискаєш на елемент він перескакував на іншу колонку (івент) -->
+    </pre>
+    <div id="container">
+      <h3>Cities list</h3>
+      <div id="cities-columus">
+        <div id="citiesLeft"></div>
+        <div id="citiesRight"></div>
+      </div>
+      <hr />
+      <button onclick="DisplayShowedCities()">Міста, що залишились</button>
+      <br />
+      <div id="resultList"></div>
+    </div>
+    <script>
+      let cities = [
+        "London",
+        "Paris",
+        "Berlin",
+        "Rome",
+        "Budapest",
+        "Lisbon",
+        "Madrid",
+        "Amsterdam",
+      ];
+
+      renderCities(cities);
+
+      function renderCities(cities) {
+        const citiesLeft = document.getElementById("citiesLeft");
+        const citiesRight = document.getElementById("citiesRight");
+        let citiesLeftHTML = "<ul>";
+        let citiesRightHTML = "<ul>";
+
+        for (let index = 0; index < cities.length; index++) {
+          citiesLeftHTML += `<li id='lc_${index}' onclick="ShowHide('rc_${index}', 'lc_${index}')">${cities[index]}</li>`;
+          citiesRightHTML += `<li id='rc_${index}' onclick="ShowHide('lc_${index}', 'rc_${index}')" style="visibility:hidden;">${cities[index]}</li>`;
+        }
+
+        citiesLeftHTML += "</ul>";
+        citiesRightHTML += "</ul>";
+        citiesLeft.innerHTML = citiesLeftHTML;
+        citiesRight.innerHTML = citiesRightHTML;
+      }
+
+      function ShowHide(idToShow, idToHide) {
+        console.log(idToShow, idToHide);
+        document.getElementById(idToHide).style.visibility = "hidden";
+        document.getElementById(idToShow).style.visibility = "visible";
+      }
+
+      function DisplayShowedCities() {
+        var nofinalList = document
+          .getElementById("citiesLeft")
+          .getElementsByTagName("li");
+        let result = "";
+        for (i = 0; i < nofinalList.length; i++) {
+          if (nofinalList[i].style.visibility != "hidden") {
+            result += nofinalList[i].innerHTML + ", ";
+          }
+        }
+        if (result.length > 0) {
+          result = result.slice(0, -2);
+          result += ".";
+        }
+        console.log(result);
+        document.getElementById("resultList").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
